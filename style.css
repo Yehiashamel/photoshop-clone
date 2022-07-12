@@ -18,6 +18,10 @@ body{
     grid-template-columns:5fr 3fr;
     margin: 100px 0;
 }
+.filters{
+    height: 300px;
+    overflow: scroll;
+}
 .img{
     display:flex;
     flex-direction:column;
