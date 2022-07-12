@@ -5,7 +5,6 @@ let sepia = document.getElementById('sepia');
 let grayscale = document.getElementById('grayscale');
 let blur = document.getElementById('blur');
 let hueRotate = document.getElementById('hue-rotate');
-let filtersContainer = document.querySelector('.filters')
 
 let download = document.getElementById('download');
 let reset = document.getElementById('Reset');
@@ -16,7 +15,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 function resetValue(){
-    canvas.filter = "none";
+    ctx.filter = "none";
     saturate.value = '100';
     contrast.value = '100';
     brightness.value = '100';
@@ -66,14 +65,4 @@ filters.forEach( filter =>{
 
 download.onclick = function(){
     download.href = canvas.toDataURL('img/jpeg');
-}
-reset.onclick = function(){
-    img.style.filter = "none";
-    saturate.value = '100';
-    contrast.value = '100';
-    brightness.value = '100';
-    sepia.value = '0';
-    grayscale.value = '0';
-    blur.value = '0';
-   hueRotate.value = '0';
 }
