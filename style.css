@@ -72,4 +72,7 @@ body{
     .container{
         grid-template-columns: 1fr;
     }
+    .filters{
+        height:300px;
+        overflow-y:scroll;
 }
