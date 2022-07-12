@@ -27,3 +27,12 @@ upload.onchange = function(){
     img.src = file.result;
     }
 }
+
+let filters = document.querySelector('ul li input');
+filters.forEach(filter =>{
+    filter.addEventListener('input', function(){
+        img.style.filter = `
+        saturate(${saturate.value}%)       
+        `
+    })
+})
