@@ -64,5 +64,5 @@ filters.forEach( filter =>{
 })
 
 download.onclick = function(){
-    download.href = canvas.toDataURL('img/jpeg');
+    download.href = canvas.toDataURL('img/jpg');
 }
