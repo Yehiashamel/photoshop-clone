@@ -5,6 +5,7 @@ let sepia = document.getElementById('sepia');
 let grayscale = document.getElementById('grayscale');
 let blur = document.getElementById('blur');
 let hueRotate = document.getElementById('hue-rotate');
+let filtersContainer = document.querySelector('.filters')
 
 let download = document.getElementById('download');
 let reset = document.getElementById('Reset');
@@ -29,9 +30,13 @@ window.onload = function(){
     download.style.display = 'none';
     reset.style.display = 'none';
     imgBox.style.display = 'none';
+    filtersContainer.style.overflow = 'scroll';
+    filtersContainer.style.height = 'fit-content';
 }
 upload.onchange = function(){
     resetValue();
+    filtersContainer.style.overflow = 'scroll';
+    filtersContainer.style.height = '300px';
     download.style.display = 'block';
     reset.style.display = 'block';
     imgBox.style.display = 'block';
