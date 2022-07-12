@@ -11,6 +11,19 @@ let reset = document.getElementById('Reset');
 
 let upload = document.getElementById('upload');
 let imgBox = document.querySelector('.img-box');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+function resetValue(){
+    canvas.filter = "none";
+    saturate.value = '100';
+    contrast.value = '100';
+    brightness.value = '100';
+    sepia.value = '0';
+    grayscale.value = '0';
+    blur.value = '0';
+    hueRotate.value = '0';
+}
 
 window.onload = function(){
     download.style.display = 'none';
@@ -18,6 +31,7 @@ window.onload = function(){
     imgBox.style.display = 'none';
 }
 upload.onchange = function(){
+    resetValue();
     download.style.display = 'block';
     reset.style.display = 'block';
     imgBox.style.display = 'block';
@@ -26,13 +40,39 @@ upload.onchange = function(){
     file.onload = function(){
     img.src = file.result;
     }
+    img.onload = function(){
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img , 0, 0 , canvas.width ,canvas.height );
+        img.style.display = "none";
+    }
 }
-
-let filters = document.querySelector('ul li input');
-filters.forEach(filter =>{
+let filters = document.querySelectorAll('ul li input');
+filters.forEach( filter =>{
     filter.addEventListener('input', function(){
-        img.style.filter = `
-        saturate(${saturate.value}%)       
+        ctx.filter =`
+        saturate(${saturate.value}%)
+        contrast(${contrast.value}%)
+        brightness(${brightness.value}%)
+        sepia(${sepia.value}%)
+        grayscale(${grayscale.value})
+        blur(${blur.value}px)
+        hue-rotate(${hueRotate.value}deg)
         `
+        ctx.drawImage(img , 0, 0 , canvas.width ,canvas.height );
     })
 })
+
+download.onclick = function(){
+    download.href = canvas.toDataURL('img/jpeg');
+}
+reset.onclick = function(){
+    img.style.filter = "none";
+    saturate.value = '100';
+    contrast.value = '100';
+    brightness.value = '100';
+    sepia.value = '0';
+    grayscale.value = '0';
+    blur.value = '0';
+   hueRotate.value = '0';
+}
