@@ -1,4 +1,4 @@
-et saturate = document.querySelector('#saturate');
+let saturate = document.querySelector('#saturate');
 let contrast = document.getElementById('contrast');
 let brightness = document.getElementById('brightness');
 let sepia = document.getElementById('sepia');
