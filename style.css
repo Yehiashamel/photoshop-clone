@@ -27,8 +27,7 @@ body{
 }
 
 .img img{
-    max-width:45vw;
-    max-height:60vh;
+    width: 100%;
 }
 .upload input{
     display:none;
